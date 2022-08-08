@@ -37,14 +37,14 @@ class Wallet(models.Model):
     amount=models.IntegerField()
     date=models.DateTimeField(default=timezone.now)
     status=models.CharField(max_length=20,null=True)
-    pin=models.TextField(max_length=6,null=True)
+    pin=models.TextField(max_length=4,null=True)
 
 class Account(models.Model):
     account_number=models.IntegerField(default=0)
-    account_type=models.CharField(max_length=20,null=True)
     balance=models.IntegerField()
     name=models.CharField(max_length=20,null=True)
     wallet=models.ForeignKey('Wallet',on_delete=models.CASCADE, related_name ='Account_wallet')
+   
 
 class Transaction(models.Model):
     transaction_ref=models.CharField(max_length=255,null=True)

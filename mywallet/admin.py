@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer,Wallet,Currency,Reward,Receipts,Transaction,ThirdParty,Card,Loan,Notifications
+from .models import Customer,Wallet,Currency,Reward,Receipts,Transaction,ThirdParty,Card,Loan,Notifications,Account
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ("first_name","last_name","address",)
     search_fields = ("first_name","last_name",)
@@ -13,6 +13,6 @@ admin.site.register(Wallet)
 admin.site.register(Reward)
 admin.site.register(Loan)
 admin.site.register(Notifications)
-
+admin.site.register(Account)
 
 
