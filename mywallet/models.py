@@ -9,13 +9,11 @@ from django.utils import timezone
 class Customer(models.Model):
     first_name=models.CharField(max_length=20,null=True)
     last_name=models.CharField(max_length=20,null=True)
-    # age=class Customer(models.Model):
-    first_name=models.CharField(max_length=20,null=True)
-    last_name=models.CharField(max_length=20,null=True)
     age=models.CharField(max_length=10,null=True)
     address=models.CharField(max_length=20,null=True)
     email=models.EmailField(max_length=45,null=True)
     phonenumber=models.CharField(max_length=15,null=True)
+    pin=models.CharField(max_length=4,null=True)
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
@@ -37,7 +35,7 @@ class Wallet(models.Model):
     amount=models.IntegerField()
     date=models.DateTimeField(default=timezone.now)
     status=models.CharField(max_length=20,null=True)
-    pin=models.TextField(max_length=4,null=True)
+    pin=models.CharField(max_length=4,null=True)
 
 class Account(models.Model):
     account_number=models.IntegerField(default=0)
@@ -105,7 +103,7 @@ class Receipts(models.Model):
     recipt_number=models.CharField(max_length=25, null=True)
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Receipts_account')
     total_Amount=models.IntegerField(default=0)
-    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
+    # transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
     recipt_File=models.FileField(upload_to='wallet/')
     
 
