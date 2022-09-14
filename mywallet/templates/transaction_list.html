@@ -1,0 +1,57 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Transaction Ref</th>
+    <th>Wallet</th>
+    <th>Transaction Amount</th>
+    <th>Transaction Type</th>
+    <th>Transaction Charge</th>
+    <th>Transaction Date</th>
+    <th>Receipt</th>
+    <th>Original Account</th>
+    <th>Destination Account</th>
+            
+</tr>
+
+{% for transaction in transactions %}
+<tr>
+    <td>{{transaction.transaction_ref}}</td>
+    <td>{{transaction.wallet}}</td>
+    <td>{{transaction.transaction_amount}}</td>
+    <td>{{transaction.transaction_type}}</td>
+    <td>{{transaction.transaction_charge}}</td>
+    <td>{{transaction.transaction_date}}</td>
+    <td>{{transaction.receipt}}</td>
+    <td>{{transaction.original_account}}</td>
+    <td>{{transaction.destination_account}}</td>
+</tr>
+{% endfor %}
+
+</table>

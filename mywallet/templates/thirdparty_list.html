@@ -1,0 +1,51 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Account</th>
+    <th>Name</th>
+    <th>Thirdparty Id</th>
+    <th>Phone Number</th>
+    <th>Currency</th>
+  
+            
+</tr>
+
+{% for party in partys %}
+<tr>
+    <td>{{party.account}}</td>
+    <td>{{party.name}}</td>
+    <td>{{party.thirdparty_id}}</td>
+    <td>{{party.phone_Number}}</td>
+    <td>{{party.currency}}</td>
+  
+</tr>
+{% endfor %}
+
+</table>

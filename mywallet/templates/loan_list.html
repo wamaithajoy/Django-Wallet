@@ -1,0 +1,61 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Loan Number</th>
+    <th>Loan Type</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Wallet</th>
+    <th>Interest Rate</th>
+    <th>Guaranter</th>
+    <th>Due Date</th>
+    <th>Loan Balance</th>
+    <th>Loan Term</th>
+            
+</tr>
+
+{% for loan in loans %}
+<tr>
+    <td>{{loan.loan_number}}</td>
+    <td>{{loan.loan_type}}</td>
+    <td>{{loan.amount}}</td>
+    <td>{{loan.date}}</td>
+    <td>{{loan.wallet}}</td>
+    <td>{{loan.interest_rate}}</td>
+    <td>{{loan.guaranter}}</td>
+    <td>{{loan.due_date}}</td>
+    <td>{{loan.loan_balance}}</td>
+    <td>{{loan.loan_term}}</td>
+    
+
+</tr>
+{% endfor %}
+
+</table>

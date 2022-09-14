@@ -1,0 +1,47 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Account Number</th>
+    <th>Balance</th>
+    <th>Name</th>
+    <th>Wallet</th>
+            
+</tr>
+
+{% for account in accounts %}
+<tr>
+    <td>{{account.account_number}}</td>
+    <td>{{account.balance}}</td>
+    <td>{{account.name}}</td>
+    <td>{{account.wallet}}</td>
+</tr>
+{% endfor %}
+
+</table>

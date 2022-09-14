@@ -1,0 +1,48 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Notification Id</th>
+    <th>Status</th>
+    <th>Date</th>
+    <th>Recepient</th>
+            
+</tr>
+
+{% for notification in notifications %}
+<tr>
+    <td>{{notification.notification_Id}}</td>
+    <td>{{notification.status}}</td>
+    <td>{{notification.date}}</td>
+    <td>{{notification.recipient}}</td>
+  
+</tr>
+{% endfor %}
+
+</table>

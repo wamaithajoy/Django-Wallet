@@ -1,0 +1,52 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Receipt Type</th>
+    <th>Receipt Date</th>
+    <th>Receipt Number</th>
+    <th>Account</th>
+    <th>Total Amount</th>
+    <th>Recipt File</th>
+            
+</tr>
+
+{% for receipt in receipts %}
+<tr>
+    <td>{{receipt.receipt_type}}</td>
+    <td>{{receipt.receipt_date}}</td>
+    <td>{{receipt.recipt_number}}</td>
+    <td>{{receipt.account}}</td>
+    <td>{{receipt.total_Amount}}</td>
+    <td>{{receipt.recipt_File}}</td>
+  
+</tr>
+{% endfor %}
+
+</table>

@@ -1,0 +1,51 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>Transaction</th>
+    <th>Date</th>
+    <th>Customer</th>
+    <th>Gender</th>
+    <th>Bonus</th>
+   
+            
+</tr>
+
+{% for reward in rewards %}
+<tr>
+    <td>{{reward.transaction}}</td>
+    <td>{{reward.date}}</td>
+    <td>{{reward.customer}}</td>
+    <td>{{reward.gender}}</td>
+    <td>{{reward.bonus}}</td>
+ 
+</tr>
+{% endfor %}
+
+</table>

@@ -1,0 +1,57 @@
+<style>
+    #mytable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #mytable td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      {% comment %} #staffInfo tr:nth-child(even){background-color: #C5B4E3;}
+      #staffInfo tr:{background-color: #C5B4E3;} {% endcomment %}
+      
+      #mytable tr:hover {background-color: #C5B4E3;}
+      
+      #mytable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #800080;
+        color: white;
+      }
+
+</style>
+
+
+<table id="mytable">
+<tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Age</th>
+    <th>Address</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Gender</th>
+    <th>Date Created</th>
+    <th>Nationality</th>
+            
+</tr>
+
+{% for customer in customers %}
+<tr>
+    <td>{{customer.first_name}}</td>
+    <td>{{customer.last_name}}</td>
+    <td>{{customer.age}}</td>
+    <td>{{customer.address}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.phonenumber}}</td>
+    <td>{{customer.gender}}</td>
+    <td>{{customer.date_created}}</td>
+    <td>{{customer.nationality}}</td>
+</tr>
+{% endfor %}
+
+</table>
