@@ -36,6 +36,7 @@ class Wallet(models.Model):
     date=models.DateTimeField(default=timezone.now)
     status=models.CharField(max_length=20,null=True)
     pin=models.CharField(max_length=4,null=True)
+    
 
 class Account(models.Model):
     account_number=models.IntegerField(default=0)

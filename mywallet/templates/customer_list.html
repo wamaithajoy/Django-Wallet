@@ -37,6 +37,8 @@
     <th>Gender</th>
     <th>Date Created</th>
     <th>Nationality</th>
+    <th>Profile</th>
+
             
 </tr>
 
@@ -51,6 +53,7 @@
     <td>{{customer.gender}}</td>
     <td>{{customer.date_created}}</td>
     <td>{{customer.nationality}}</td>
+    <td><a href="{%url 'customer_profile' id=customer.id%}">view Profile</a>
 </tr>
 {% endfor %}
 

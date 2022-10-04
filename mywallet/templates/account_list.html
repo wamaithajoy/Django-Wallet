@@ -32,6 +32,7 @@
     <th>Balance</th>
     <th>Name</th>
     <th>Wallet</th>
+    <th>Profile</th>
             
 </tr>
 
@@ -41,6 +42,7 @@
     <td>{{account.balance}}</td>
     <td>{{account.name}}</td>
     <td>{{account.wallet}}</td>
+    <td><a href="{%url 'account_profile' id=account.id%}">view Profile</a>
 </tr>
 {% endfor %}
 

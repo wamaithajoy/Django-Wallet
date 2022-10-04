@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from calendar import c
+from django.shortcuts import redirect, render
 from .forms import AccountRegistrationForm, CardRegistrationForm, CurrencyRegistrationForm, CustomerRegistrationForm, LoanRegistrationForm, NotificationsRegistrationForm, ReceiptRegistationForm, RewardRegistrtionForm, ThirdpartyRegistrationForm, TransactionRegistrationForm, WalletRegistrationForm
 from .models import Account, Card, Currency, Customer, Loan, Notifications, Receipts, Reward, ThirdParty, Transaction, Wallet
 
@@ -148,8 +149,100 @@ def list_reward(request):
     rewards=Reward.objects.all()
     return render(request,"reward_list.html",{"rewards":rewards})    
 
+def customer_profile(request,id):
+    customer=Customer.objects.get(id=id)
+    return render(request,"customer_profile.html",{"customer":customer})
+
+def edit_profile(request,id):
+    customer=Customer.objects.get(id=id)
+    if request.method=="POST":
+        form=CustomerRegistrationForm(request.POST,instance=customer) 
+        if form.is_valid():
+            form.save()
+        return redirect("customer_profile",id=customer.id)
+
+    else:
+        form=CustomerRegistrationForm(instance=customer) 
+        return render(request,"edit_profile.html",{"form":form})  
 
 
+def wallet_profile(request,id):
+    wallet=Wallet.objects.get(id=id)
+    return render (request,"wallet_profile.html",{"wallet":wallet})     
 
+def edit_wallet(request,id):
+    wallet=Wallet.objects.get(id=id)
+    if request.method=="POST":
+        form=WalletRegistrationForm(request.POST,instance=wallet) 
+        if form.is_valid():
+            form.save()
+        return redirect("wallet_profile",id=wallet.id)
 
+    else:
+        form=WalletRegistrationForm(instance=wallet) 
+        return render(request,"edit_wallet.html",{"form":form})  
 
+def account_profile(request,id):
+    account=Account.objects.get(id=id)
+    return render (request,"account_profile.html",{"account":account})
+
+def edit_account(request,id):
+    account=Account.objects.get(id=id)
+    if request.method=="POST":
+        form=AccountRegistrationForm(request.POST,instance=account) 
+        if form.is_valid():
+            form.save()
+        return redirect("account_profile",id=account.id)
+
+    else:
+        form=AccountRegistrationForm(instance=account) 
+        return render(request,"edit_account.html",{"form":form})
+
+def card_profile(request,id):
+    card=Card.objects.get(id=id)
+    return render (request,"card_profile.html",{"card":card})
+
+def edit_card(request,id):
+    card=Card.objects.get(id=id)
+    if request.method=="POST":
+        form=CardRegistrationForm(request.POST,instance=card) 
+        if form.is_valid():
+            form.save()
+        return redirect("account_profile",id=card.id)
+
+    else:
+        form=CardRegistrationForm(instance=card) 
+        return render(request,"edit_card.html",{"form":form})
+
+def transaction_profile(request,id):
+    transaction=Transaction.objects.get(id=id)
+    return render (request,"transaction_profile.html",{"transaction":transaction})
+
+def edit_transaction(request,id):
+    transaction=Transaction.objects.get(id=id)
+    if request.method=="POST":
+        form=TransactionRegistrationForm(request.POST,instance=transaction) 
+        if form.is_valid():
+            form.save()
+        return redirect("transaction_profile",id=transaction.id)
+
+    else:
+        form=TransactionRegistrationForm(instance=transaction) 
+        return render(request,"edit_transaction.html",{"form":form})
+
+def receipt_profile(request,id):
+    receipts=Receipts.objects.get(id=id)
+    return render (request,"receipts_profile.html",{"receipts":receipts})
+
+def edit_receipt(request,id):
+    receipts=Receipts.objects.get(id=id)
+    if request.method=="POST":
+        form=ReceiptRegistationForm(request.POST,instance=receipts) 
+        if form.is_valid():
+            form.save()
+        return redirect("receipts_profile",id=receipts.id)
+
+    else:
+        form=ReceiptRegistationForm(instance=receipts) 
+        return render(request,"edit_receipts.html",{"form":form})                           
+  

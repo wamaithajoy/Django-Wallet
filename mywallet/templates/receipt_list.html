@@ -34,6 +34,7 @@
     <th>Account</th>
     <th>Total Amount</th>
     <th>Recipt File</th>
+    <th>Profile</th>
             
 </tr>
 
@@ -45,6 +46,7 @@
     <td>{{receipt.account}}</td>
     <td>{{receipt.total_Amount}}</td>
     <td>{{receipt.recipt_File}}</td>
+    <td><a href="{%url 'receipts_profile' id=receipts.id%}">view Profile</a>
   
 </tr>
 {% endfor %}

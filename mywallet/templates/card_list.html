@@ -37,6 +37,7 @@
     <th>Security Code</th>
     <th>Wallet</th>
     <th>Account</th>
+    <th>Profile</th>
             
 </tr>
 
@@ -51,7 +52,7 @@
     <td>{{card.cvv_security}}</td>
     <td>{{card.wallet}}</td>
     <td>{{card.account}}</td>
-  
+    <td><a href="{%url 'card_profile' id=card.id%}">view Profile</a>
 </tr>
 {% endfor %}
 
